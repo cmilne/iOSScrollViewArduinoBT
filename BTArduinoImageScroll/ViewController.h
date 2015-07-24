@@ -11,6 +11,8 @@
 
 @interface ViewController : UIViewController<UIScrollViewDelegate, CBCentralManagerDelegate, UARTPeripheralDelegate>
 
+
+@property (weak, nonatomic) IBOutlet UIButton *connectButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

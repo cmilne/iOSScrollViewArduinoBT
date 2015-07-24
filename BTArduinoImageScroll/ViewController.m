@@ -60,6 +60,17 @@ typedef enum {
     long page = self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
     
     NSLog(@"scrollViewDidEndScrollingAnimation. page: %ld", page);
+    
+    if(0 == page) {
+        [self sendData:@"f"];
+    }
+    else if(1 == page) {
+        [self sendData:@"c"];
+    }
+    else if(2 == page) {
+        [self sendData:@"s"];
+    }
+    //[self sendData:[NSString stringWithFormat:@"%ld", page]];
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
     // Here is where we let the system know that we can switch the lights using BT using page as the input
@@ -74,17 +85,16 @@ typedef enum {
 }
 
 #pragma mark - Controls
-/*
 - (IBAction)connectButtonPressed:(id)sender
 {
-    [self.sendTextField resignFirstResponder];
+    //[self.sendTextField resignFirstResponder];
     
     switch (self.state) {
         case IDLE:
             self.state = SCANNING;
             
             NSLog(@"Started scan ...");
-            [self.connectButton setTitle:@"Scanning ..." forState:UIControlStateNormal];
+            [self.connectButton setTitle:@"S" forState:UIControlStateNormal];
             
             [self.cm scanForPeripheralsWithServices:@[UARTPeripheral.uartServiceUUID] options:@{CBCentralManagerScanOptionAllowDuplicatesKey: [NSNumber numberWithBool:NO]}];
             break;
@@ -93,18 +103,19 @@ typedef enum {
             self.state = IDLE;
             
             NSLog(@"Stopped scan");
-            [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+            [self.connectButton setTitle:@"C" forState:UIControlStateNormal];
             
             [self.cm stopScan];
             break;
             
         case CONNECTED:
             NSLog(@"Disconnect peripheral %@", self.currentPeripheral.peripheral.name);
+            [self.connectButton setTitle:@"*" forState:UIControlStateNormal];
             [self.cm cancelPeripheralConnection:self.currentPeripheral.peripheral];
             break;
     }
 }
-
+/*
 - (IBAction)sendTextFieldEditingDidBegin:(id)sender {
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     //    [self.tableView setContentOffset:CGPointMake(0, 220) animated:YES];
@@ -126,8 +137,9 @@ typedef enum {
     [self sendButtonPressed:textField];
     return YES;
 }
-
+ 
 - (IBAction)sendButtonPressed:(id)sender {
+    
     [self.sendTextField resignFirstResponder];
     
     if (self.sendTextField.text.length == 0)
@@ -136,11 +148,15 @@ typedef enum {
     }
     
     [self addTextToConsole:self.sendTextField.text dataType:TX];
-    
     [self.currentPeripheral writeString:self.sendTextField.text];
 }
 */
  
+-(void)sendData:(NSString*)dataString {
+    NSLog(@"sending Data: %@", dataString);
+    [self.currentPeripheral writeString:dataString];
+}
+
 #pragma mark - UARTPeripheralDelegate
  
 - (void) didReadHardwareRevisionString:(NSString *)string
@@ -187,7 +203,7 @@ typedef enum {
 
 - (void) centralManagerDidUpdateState:(CBCentralManager *)central {
     if (central.state == CBCentralManagerStatePoweredOn) {
-        //[self.connectButton setEnabled:YES];
+        [self.connectButton setEnabled:YES];
     }
 }
 
@@ -203,14 +219,14 @@ typedef enum {
 - (void) centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@"Did connect peripheral %@", peripheral.name);
     
-    /*
-    [self addTextToConsole:[NSString stringWithFormat:@"Did connect to %@", peripheral.name] dataType:LOGGING];
+    
+    //[self addTextToConsole:[NSString stringWithFormat:@"Did connect to %@", peripheral.name] dataType:LOGGING];
     
     self.state = CONNECTED;
-    [self.connectButton setTitle:@"Disconnect" forState:UIControlStateNormal];
-    [self.sendButton setUserInteractionEnabled:YES];
-    [self.sendTextField setUserInteractionEnabled:YES];
-    */
+    [self.connectButton setTitle:@"*" forState:UIControlStateNormal];
+    //[self.sendButton setUserInteractionEnabled:YES];
+    //[self.sendTextField setUserInteractionEnabled:YES];
+    
     if ([self.currentPeripheral.peripheral isEqual:peripheral])
     {
         [self.currentPeripheral didConnect];
@@ -219,14 +235,14 @@ typedef enum {
 
 - (void) centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
     NSLog(@"Did disconnect peripheral %@", peripheral.name);
-    /*
-    [self addTextToConsole:[NSString stringWithFormat:@"Did disconnect from %@, error code %d", peripheral.name, error.code] dataType:LOGGING];
+    
+    //[self addTextToConsole:[NSString stringWithFormat:@"Did disconnect from %@, error code %d", peripheral.name, error.code] dataType:LOGGING];
     
     self.state = IDLE;
     [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
-    [self.sendButton setUserInteractionEnabled:NO];
-    [self.sendTextField setUserInteractionEnabled:NO];
-    */
+    //[self.sendButton setUserInteractionEnabled:NO];
+    //[self.sendTextField setUserInteractionEnabled:NO];
+    
     if ([self.currentPeripheral.peripheral isEqual:peripheral])
     {
         [self.currentPeripheral didDisconnect];

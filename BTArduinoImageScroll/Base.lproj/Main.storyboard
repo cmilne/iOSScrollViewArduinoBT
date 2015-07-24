@@ -18,6 +18,17 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JB5-np-yFc">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-Wi-ZCc">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
+                                        <state key="normal" title="C">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="connectButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DAC-jn-U31"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="XVc-CD-9v5"/>
                                 </connections>
@@ -28,11 +39,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
                     <connections>
+                        <outlet property="connectButton" destination="bRi-Wi-ZCc" id="w8r-pA-5Nd"/>
                         <outlet property="scrollView" destination="JB5-np-yFc" id="Ik6-mS-1uj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="165" y="423"/>
         </scene>
     </scenes>
 </document>
