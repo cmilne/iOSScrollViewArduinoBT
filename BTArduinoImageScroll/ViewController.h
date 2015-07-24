@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UARTPeripheral.h"
 
-@interface ViewController : UIViewController<UIScrollViewDelegate>
+@interface ViewController : UIViewController<UIScrollViewDelegate, CBCentralManagerDelegate, UARTPeripheralDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 

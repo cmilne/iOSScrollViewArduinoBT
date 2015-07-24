@@ -15,6 +15,11 @@
 		FE0CA2251B61D4420081731A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE0CA2231B61D4420081731A /* LaunchScreen.xib */; };
 		FE0CA2311B61D4430081731A /* BTArduinoImageScrollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0CA2301B61D4430081731A /* BTArduinoImageScrollTests.m */; };
 		FE0CA23B1B61D5910081731A /* fillMurray1024x768.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE0CA23A1B61D5910081731A /* fillMurray1024x768.jpg */; };
+		FE0CA23F1B61DB620081731A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0CA23E1B61DB620081731A /* UIKit.framework */; };
+		FE0CA2411B61DB6B0081731A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0CA2401B61DB6B0081731A /* CoreBluetooth.framework */; };
+		FE0CA2431B61DB7A0081731A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0CA2421B61DB7A0081731A /* Foundation.framework */; };
+		FE0CA2451B61DB810081731A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE0CA2441B61DB810081731A /* CoreGraphics.framework */; };
+		FE0CA2481B61DBC70081731A /* UARTPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0CA2471B61DBC70081731A /* UARTPeripheral.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,12 @@
 		FE0CA22F1B61D4430081731A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE0CA2301B61D4430081731A /* BTArduinoImageScrollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTArduinoImageScrollTests.m; sourceTree = "<group>"; };
 		FE0CA23A1B61D5910081731A /* fillMurray1024x768.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fillMurray1024x768.jpg; sourceTree = "<group>"; };
+		FE0CA23E1B61DB620081731A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FE0CA2401B61DB6B0081731A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		FE0CA2421B61DB7A0081731A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FE0CA2441B61DB810081731A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FE0CA2461B61DBC70081731A /* UARTPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARTPeripheral.h; sourceTree = "<group>"; };
+		FE0CA2471B61DBC70081731A /* UARTPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARTPeripheral.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +60,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE0CA2451B61DB810081731A /* CoreGraphics.framework in Frameworks */,
+				FE0CA2431B61DB7A0081731A /* Foundation.framework in Frameworks */,
+				FE0CA2411B61DB6B0081731A /* CoreBluetooth.framework in Frameworks */,
+				FE0CA23F1B61DB620081731A /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +83,10 @@
 				FE0CA2131B61D4420081731A /* BTArduinoImageScroll */,
 				FE0CA22D1B61D4430081731A /* BTArduinoImageScrollTests */,
 				FE0CA2121B61D4420081731A /* Products */,
+				FE0CA2441B61DB810081731A /* CoreGraphics.framework */,
+				FE0CA2421B61DB7A0081731A /* Foundation.framework */,
+				FE0CA2401B61DB6B0081731A /* CoreBluetooth.framework */,
+				FE0CA23E1B61DB620081731A /* UIKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +107,8 @@
 				FE0CA2191B61D4420081731A /* AppDelegate.m */,
 				FE0CA21B1B61D4420081731A /* ViewController.h */,
 				FE0CA21C1B61D4420081731A /* ViewController.m */,
+				FE0CA2461B61DBC70081731A /* UARTPeripheral.h */,
+				FE0CA2471B61DBC70081731A /* UARTPeripheral.m */,
 				FE0CA21E1B61D4420081731A /* Main.storyboard */,
 				FE0CA2211B61D4420081731A /* Images.xcassets */,
 				FE0CA2231B61D4420081731A /* LaunchScreen.xib */,
@@ -226,6 +247,7 @@
 				FE0CA21D1B61D4420081731A /* ViewController.m in Sources */,
 				FE0CA21A1B61D4420081731A /* AppDelegate.m in Sources */,
 				FE0CA2171B61D4420081731A /* main.m in Sources */,
+				FE0CA2481B61DBC70081731A /* UARTPeripheral.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +444,7 @@
 				FE0CA2361B61D4430081731A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FE0CA2371B61D4430081731A /* Build configuration list for PBXNativeTarget "BTArduinoImageScrollTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +453,7 @@
 				FE0CA2391B61D4430081731A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
