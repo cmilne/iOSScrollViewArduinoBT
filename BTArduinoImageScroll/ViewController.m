@@ -36,15 +36,31 @@ typedef enum {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fillMurray1024x768.jpg"]];
     UIImageView *imageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fillMurray1024x768.jpg"]];
     UIImageView *imageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fillMurray1024x768.jpg"]];
+    UIImageView *imageView4 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fillMurray1024x768.jpg"]];
+    UIImageView *imageView5 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fillMurray1024x768.jpg"]];
+    UIImageView *imageView6 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fillMurray1024x768.jpg"]];
+    UIImageView *imageView7 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fillMurray1024x768.jpg"]];
+    UIImageView *imageView8 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fillMurray1024x768.jpg"]];
     
-    [imageView2 setFrame:CGRectMake(imageView.frame.size.width, 0, imageView2.frame.size.width, imageView2.frame.size.height)];
-    [imageView3 setFrame:CGRectMake(imageView.frame.size.width*2, 0, imageView3.frame.size.width, imageView3.frame.size.height)];
+    [imageView setFrame:CGRectMake(imageView.frame.size.width*0, 0, imageView.frame.size.width, imageView.frame.size.height)];
+    [imageView2 setFrame:CGRectMake(imageView.frame.size.width*1, 0, imageView.frame.size.width, imageView.frame.size.height)];
+    [imageView3 setFrame:CGRectMake(imageView.frame.size.width*2, 0, imageView.frame.size.width, imageView.frame.size.height)];
+    [imageView4 setFrame:CGRectMake(imageView.frame.size.width*3, 0, imageView.frame.size.width, imageView.frame.size.height)];
+    [imageView5 setFrame:CGRectMake(imageView.frame.size.width*4, 0, imageView.frame.size.width, imageView.frame.size.height)];
+    [imageView6 setFrame:CGRectMake(imageView.frame.size.width*5, 0, imageView.frame.size.width, imageView.frame.size.height)];
+    [imageView7 setFrame:CGRectMake(imageView.frame.size.width*6, 0, imageView.frame.size.width, imageView.frame.size.height)];
+    [imageView8 setFrame:CGRectMake(imageView.frame.size.width*7, 0, imageView.frame.size.width, imageView.frame.size.height)];
     
     [self.scrollView addSubview:imageView];
     [self.scrollView addSubview:imageView2];
     [self.scrollView addSubview:imageView3];
+    [self.scrollView addSubview:imageView4];
+    [self.scrollView addSubview:imageView5];
+    [self.scrollView addSubview:imageView6];
+    [self.scrollView addSubview:imageView7];
+    [self.scrollView addSubview:imageView8];
     
-    [self.scrollView setContentSize:CGSizeMake(imageView.frame.size.width*3, self.scrollView.frame.size.height)];
+    [self.scrollView setContentSize:CGSizeMake(imageView.frame.size.width*8, self.scrollView.frame.size.height)];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -61,16 +77,7 @@ typedef enum {
     
     NSLog(@"scrollViewDidEndScrollingAnimation. page: %ld", page);
     
-    if(0 == page) {
-        [self sendData:@"f"];
-    }
-    else if(1 == page) {
-        [self sendData:@"c"];
-    }
-    else if(2 == page) {
-        [self sendData:@"s"];
-    }
-    //[self sendData:[NSString stringWithFormat:@"%ld", page]];
+    [self sendData:[NSString stringWithFormat:@"%ld", page]];
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
     // Here is where we let the system know that we can switch the lights using BT using page as the input
